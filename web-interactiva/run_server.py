@@ -33,11 +33,11 @@ app.register_blueprint(chatbot_bp, url_prefix='/api')
 # Sin embargo, si no necesitas la base de datos activa para el despliegue inicial,
 # es mejor mantenerla comentada o usar una base de datos externa.
 # Si la activas, asegúrate de que la ruta sea a /tmp para que sea escribible.
-# app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join('/tmp', 'app.db')}"
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db.init_app(app)
-# with app.app_context():
-#     db.create_all()
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join('/tmp', 'app.db')}"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 # --- FIN Configuración de la Base de Datos ---
 
 @app.route('/', defaults={'path': ''})
