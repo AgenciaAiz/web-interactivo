@@ -1,6 +1,6 @@
 import os
 import sys # Asegúrate de que sys esté importado
-# DON'T CHANGE THIS !!!
+raise Exception("DEBUG: Reached top of run_server.py - FORCED ERROR")
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from flask import Flask, send_from_directory
